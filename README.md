@@ -1,33 +1,33 @@
-# demoreel
+# filmless
 
 Screen recording you can edit like code. Record a real session in your web app once, then retime it, move a camera over it, and render a crisp, deterministic GIF — from the same take, forever.
 
-**Live demo (not a video — the actual DOM replay with edit sliders): [demoreel-two.vercel.app](https://demoreel-two.vercel.app)**
+**Live demo (not a video — the actual DOM replay with edit sliders): [filmless.vercel.app](https://filmless.vercel.app)**
 
-![demoreel demo](docs/demo.gif)
+![filmless demo](docs/demo.gif)
 
-*This GIF was rendered by demoreel itself: one recorded session, auto-edited by `demoreel suggest`.*
+*This GIF was rendered by filmless itself: one recorded session, auto-edited by `filmless suggest`.*
 
 ## Why
 
 - **Screen recordings are single-use.** Want the zoom 0.3s later? Re-record everything.
-- **demoreel records the DOM, not pixels** (via [rrweb](https://github.com/rrweb-io/rrweb)). The edit is a JSON file. The render is a pure function of time — byte-identical every run, at any resolution.
+- **filmless records the DOM, not pixels** (via [rrweb](https://github.com/rrweb-io/rrweb)). The edit is a JSON file. The render is a pure function of time — byte-identical every run, at any resolution.
 - Think [vhs](https://github.com/charmbracelet/vhs), but for web apps instead of terminals.
 
 ## Quickstart
 
 ```sh
-npm i -g demoreel      # needs Node 20+, Chrome, ffmpeg
+npm i -g filmless      # needs Node 20+, Chrome, ffmpeg
 
-demoreel record http://localhost:3000   # interact with your app, Ctrl+C when done
-demoreel suggest                        # drafts reel.json: auto-zooms on clicks, cuts idle time
-demoreel render -o demo.gif             # headless re-render → palette-optimized GIF
+filmless record http://localhost:3000   # interact with your app, Ctrl+C when done
+filmless suggest                        # drafts reel.json: auto-zooms on clicks, cuts idle time
+filmless render -o demo.gif             # headless re-render → palette-optimized GIF
 ```
 
 Preview and tune the edit live:
 
 ```sh
-demoreel preview        # http://localhost:4300 — edit reel.json, refresh
+filmless preview        # http://localhost:4300 — edit reel.json, refresh
 ```
 
 ## The edit file
@@ -57,15 +57,15 @@ demoreel preview        # http://localhost:4300 — edit reel.json, refresh
 }
 ```
 
-`demoreel suggest` generates a draft from your session (zoom toward clicks, collapse gaps > 2s, wide bookends). Then you just adjust numbers.
+`filmless suggest` generates a draft from your session (zoom toward clicks, collapse gaps > 2s, wide bookends). Then you just adjust numbers.
 
 ## Commands
 
 ```
-demoreel record <url>  [-o session.json] [--viewport 1280x800] [--canvas]
-demoreel suggest [session.json] [-o reel.json]
-demoreel render  [reel.json | session.json] [-o demo.gif] [--frames a,b] [--mp4] [--auto]
-demoreel preview [reel.json] [--port 4300]
+filmless record <url>  [-o session.json] [--viewport 1280x800] [--canvas]
+filmless suggest [session.json] [-o reel.json]
+filmless render  [reel.json | session.json] [-o demo.gif] [--frames a,b] [--mp4] [--auto]
+filmless preview [reel.json] [--port 4300]
 ```
 
 - `render session.json` with no reel = plain 1x render.
@@ -82,7 +82,7 @@ The official rrweb→video tool ([rrvideo](https://github.com/rrweb-io/rrvideo))
 
 ## Limitations (honest ones)
 
-demoreel replays the DOM, so anything that never enters the DOM never renders:
+filmless replays the DOM, so anything that never enters the DOM never renders:
 
 - cross-origin iframes (Stripe checkout, embedded YouTube)
 - `<video>` pixel content — playback events replay, pixels don't

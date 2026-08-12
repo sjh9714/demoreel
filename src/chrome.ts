@@ -43,6 +43,6 @@ export function findChrome(): string {
   const pw = playwrightChrome();
   if (pw) return pw;
   throw new Error(
-    "Chrome not found. Install Google Chrome, or point the CHROME env var at a Chrome/Chromium binary:\n  CHROME=/path/to/chrome demoreel ..."
+    "Chrome not found. Install Google Chrome, or point the CHROME env var at a Chrome/Chromium binary:\n  CHROME=/path/to/chrome filmless ..."
   );
 }

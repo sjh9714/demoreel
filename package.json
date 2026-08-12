@@ -1,10 +1,10 @@
 {
-  "name": "demoreel",
+  "name": "filmless",
   "version": "0.1.0",
   "description": "Record a web app session, edit it like code, render a crisp README GIF. vhs for web apps.",
   "type": "module",
   "bin": {
-    "demoreel": "dist/cli.js"
+    "filmless": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -30,11 +30,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sjh9714/demoreel.git"
+    "url": "git+https://github.com/sjh9714/filmless.git"
   },
-  "homepage": "https://github.com/sjh9714/demoreel#readme",
+  "homepage": "https://github.com/sjh9714/filmless#readme",
   "bugs": {
-    "url": "https://github.com/sjh9714/demoreel/issues"
+    "url": "https://github.com/sjh9714/filmless/issues"
   },
   "dependencies": {
     "puppeteer-core": "^24.23.0",

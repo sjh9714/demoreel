@@ -82,10 +82,10 @@ window.ready = (async () => {
   await raf2();
 })();
 
-// live overrides for embedded demos (landing page sliders): postMessage({demoreel:{zoom,speed,cursor}})
+// live overrides for embedded demos (landing page sliders): postMessage({filmless:{zoom,speed,cursor}})
 const overrides = { zoom: 1, speed: 1, cursor: true };
 window.addEventListener("message", (e: MessageEvent) => {
-  if (e.data && e.data.demoreel) Object.assign(overrides, e.data.demoreel);
+  if (e.data && e.data.filmless) Object.assign(overrides, e.data.filmless);
 });
 
 window.seekOut = async (outT: number) => {

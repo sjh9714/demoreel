@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://demoreel.dev",
+  site: "https://filmless.dev",
 });

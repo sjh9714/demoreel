@@ -4,15 +4,15 @@ import { readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import type { Reel } from "./timeline.js";
 
-const HELP = `demoreel — record a web app session, edit it like code, render a crisp GIF
+const HELP = `filmless — record a web app session, edit it like code, render a crisp GIF
 
 Usage:
-  demoreel record <url> [-o session.json] [--viewport 1280x800] [--canvas]
-  demoreel render [reel.json | session.json] [-o demo.gif] [--frames a,b] [--mp4] [--keep-frames dir]
-  demoreel suggest [session.json] [-o reel.json]
-  demoreel preview [reel.json] [--port 4300]
+  filmless record <url> [-o session.json] [--viewport 1280x800] [--canvas]
+  filmless render [reel.json | session.json] [-o demo.gif] [--frames a,b] [--mp4] [--keep-frames dir]
+  filmless suggest [session.json] [-o reel.json]
+  filmless preview [reel.json] [--port 4300]
 
-Docs: https://github.com/sjh9714/demoreel`;
+Docs: https://github.com/sjh9714/filmless`;
 
 function fail(msg: string): never {
   console.error(msg);
@@ -41,7 +41,7 @@ switch (cmd) {
         canvas: { type: "boolean", default: false },
       },
     });
-    const url = positionals[0] || fail("usage: demoreel record <url>");
+    const url = positionals[0] || fail("usage: filmless record <url>");
     const [w, h] = values.viewport.split("x").map(Number);
     if (!w || !h) fail(`bad --viewport: ${values.viewport}`);
     const { record } = await import("./record.js");

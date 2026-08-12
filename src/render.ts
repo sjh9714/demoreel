@@ -42,7 +42,7 @@ export async function render(opts: RenderOptions): Promise<void> {
     const total = Math.floor(duration / step);
     const [first, last] = opts.frames ?? [0, total];
 
-    const framesDir = opts.keepFrames || mkdtempSync(join(tmpdir(), "demoreel-"));
+    const framesDir = opts.keepFrames || mkdtempSync(join(tmpdir(), "filmless-"));
     mkdirSync(framesDir, { recursive: true });
     console.log(`rendering frames ${first}..${last} of ${total} (${(duration / 1000).toFixed(1)}s @ ${output.fps}fps)`);
     const t0 = Date.now();

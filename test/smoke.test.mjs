@@ -11,7 +11,7 @@ const CLI = join(DIR, "../dist/cli.js");
 const SESSION = join(DIR, "fixtures/session.json");
 
 test("suggest produces a valid reel", () => {
-  const tmp = mkdtempSync(join(tmpdir(), "demoreel-test-"));
+  const tmp = mkdtempSync(join(tmpdir(), "filmless-test-"));
   const reelPath = join(tmp, "reel.json");
   execFileSync("node", [CLI, "suggest", SESSION, "-o", reelPath]);
   const reel = JSON.parse(readFileSync(reelPath, "utf8"));
@@ -22,7 +22,7 @@ test("suggest produces a valid reel", () => {
 });
 
 test("render produces frames and a gif", () => {
-  const tmp = mkdtempSync(join(tmpdir(), "demoreel-test-"));
+  const tmp = mkdtempSync(join(tmpdir(), "filmless-test-"));
   const gif = join(tmp, "demo.gif");
   const frames = join(tmp, "frames");
   execFileSync("node", [CLI, "render", SESSION, "-o", gif, "--frames", "0,4", "--keep-frames", frames], {

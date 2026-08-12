@@ -1,14 +1,14 @@
 ---
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
-const GH = "https://github.com/sjh9714/demoreel";
+const GH = "https://github.com/sjh9714/filmless";
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>demoreel — screen recording you can edit like code</title>
+    <title>filmless — screen recording you can edit like code</title>
     <meta
       name="description"
       content="Record a web app session once, edit camera and timing as JSON, render a crisp deterministic GIF. vhs for web apps."
@@ -16,22 +16,22 @@ const GH = "https://github.com/sjh9714/demoreel";
   </head>
   <body>
     <nav>
-      <span class="logo">demoreel<span class="cursor-blink">▌</span></span>
+      <span class="logo">filmless<span class="cursor-blink">▌</span></span>
       <a href={GH} class="gh">GitHub →</a>
     </nav>
 
     <header>
       <div class="hero-copy">
-        <p class="kicker">$ npm i -g demoreel</p>
+        <p class="kicker">$ npm i -g filmless</p>
         <h1>Stop screen-recording<br />your demos.</h1>
         <p class="lede">
-          Record a real session in your web app once. demoreel captures the DOM,
+          Record a real session in your web app once. filmless captures the DOM,
           not pixels — so you can retime the boring parts, zoom the camera on
           clicks, and re-render a crisp README GIF from the same take, forever.
         </p>
         <div class="cta-row">
-          <button class="copy-cmd" data-cmd="npm i -g demoreel">
-            <span class="prompt">$</span> npm i -g demoreel
+          <button class="copy-cmd" data-cmd="npm i -g filmless">
+            <span class="prompt">$</span> npm i -g filmless
             <span class="copied">copied</span>
           </button>
           <a class="ghost" href={GH}>Star on GitHub</a>
@@ -40,15 +40,15 @@ const GH = "https://github.com/sjh9714/demoreel";
       <div class="hero-term" aria-hidden="true">
         <div class="term-bar"><i></i><i></i><i></i></div>
         <pre><code><span class="c"># interact with your app once</span>
-<span class="p">$</span> demoreel record http://localhost:3000
+<span class="p">$</span> filmless record http://localhost:3000
 <span class="dim">saved 214 events → session.json</span>
 
 <span class="c"># auto-draft camera zooms + cut idle time</span>
-<span class="p">$</span> demoreel suggest
+<span class="p">$</span> filmless suggest
 <span class="dim">wrote reel.json (10 keyframes, 3 retimes)</span>
 
 <span class="c"># deterministic re-render, any size</span>
-<span class="p">$</span> demoreel render -o demo.gif
+<span class="p">$</span> filmless render -o demo.gif
 <span class="ok">wrote demo.gif  1.1 MB · 8.4s · 1120px</span></code></pre>
       </div>
     </header>
@@ -69,7 +69,7 @@ const GH = "https://github.com/sjh9714/demoreel";
             src="/demo/replay.html?play"
             width="1280"
             height="800"
-            title="live demoreel replay"
+            title="live filmless replay"
             loading="lazy"></iframe>
         </div>
         <div class="controls">
@@ -106,7 +106,7 @@ const GH = "https://github.com/sjh9714/demoreel";
           </li>
           <li>
             <b>edit</b> — <code>reel.json</code> declares retiming and camera
-            keyframes. <code>demoreel suggest</code> drafts it for you from your
+            keyframes. <code>filmless suggest</code> drafts it for you from your
             clicks and idle gaps.
           </li>
           <li>
@@ -154,7 +154,7 @@ const GH = "https://github.com/sjh9714/demoreel";
             <td class="n">no — still a pixel recording</td><td class="p">zoom/cursor, in-app</td><td>macOS</td>
           </tr>
           <tr class="us">
-            <td>demoreel</td>
+            <td>filmless</td>
             <td class="y">yes — DOM replay, deterministic</td><td class="y">yes — JSON, versionable</td><td>web apps</td>
           </tr>
         </tbody>
@@ -164,7 +164,7 @@ const GH = "https://github.com/sjh9714/demoreel";
     <section class="limits">
       <div class="section-head">
         <h2>Honest limitations</h2>
-        <p>demoreel replays the DOM, so anything that never enters the DOM never renders:</p>
+        <p>filmless replays the DOM, so anything that never enters the DOM never renders:</p>
       </div>
       <ul>
         <li>cross-origin iframes (Stripe checkout, embedded YouTube)</li>
@@ -177,7 +177,7 @@ const GH = "https://github.com/sjh9714/demoreel";
 
     <footer>
       <span>MIT · built by <a href="https://github.com/sjh9714">@sjh9714</a></span>
-      <span>the GIF in the <a href={GH}>README</a> was rendered by demoreel itself</span>
+      <span>the GIF in the <a href={GH}>README</a> was rendered by filmless itself</span>
     </footer>
 
     <script>
@@ -194,7 +194,7 @@ const GH = "https://github.com/sjh9714/demoreel";
 
       // sliders → postMessage into the replay
       const state = { zoom: 1, speed: 1, cursor: true };
-      const send = () => iframe.contentWindow?.postMessage({ demoreel: state }, "*");
+      const send = () => iframe.contentWindow?.postMessage({ filmless: state }, "*");
       const bind = (id: string, key: "zoom" | "speed", label: string) => {
         const el = document.getElementById(id) as HTMLInputElement;
         el.addEventListener("input", () => {

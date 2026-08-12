@@ -26,14 +26,14 @@ export async function record(opts: RecordOptions): Promise<void> {
   });
   const page = (await browser.pages())[0] || (await browser.newPage());
   await page.setViewport({ ...opts.viewport, deviceScaleFactor: 1 });
-  await page.exposeFunction("__demoreelEmit", (e: unknown) => events.push(e));
+  await page.exposeFunction("__filmlessEmit", (e: unknown) => events.push(e));
   await page.goto(opts.url, { waitUntil: "load" });
 
   const start = () =>
     page.evaluate(
       `(${String((recordCanvas: boolean) => {
         (window as any).rrweb.record({
-          emit: (e: unknown) => (window as any).__demoreelEmit(e),
+          emit: (e: unknown) => (window as any).__filmlessEmit(e),
           collectFonts: true,
           inlineImages: true,
           recordCanvas,
