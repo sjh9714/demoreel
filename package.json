@@ -3,19 +3,39 @@
   "version": "0.1.0",
   "description": "Record a web app session, edit it like code, render a crisp README GIF. vhs for web apps.",
   "type": "module",
-  "bin": { "demoreel": "dist/cli.js" },
-  "files": ["dist", "README.md", "LICENSE"],
-  "engines": { "node": ">=20" },
+  "bin": {
+    "demoreel": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "esbuild src/replay-client.ts --bundle --format=iife --outfile=dist/replay-client.js && esbuild src/cli.ts src/record.ts src/render.ts src/preview.ts src/suggest.ts src/replay-page.ts src/timeline.ts src/chrome.ts src/ffmpeg.ts --platform=node --format=esm --outdir=dist && tsc --noEmit",
     "test": "npm run build && node --test test/*.test.mjs",
     "prepublishOnly": "npm test"
   },
-  "keywords": ["gif", "demo", "readme", "screen-recording", "rrweb", "cli"],
+  "keywords": [
+    "gif",
+    "demo",
+    "readme",
+    "screen-recording",
+    "rrweb",
+    "cli"
+  ],
   "license": "MIT",
-  "repository": { "type": "git", "url": "git+https://github.com/sjh9714/demoreel.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjh9714/demoreel.git"
+  },
   "homepage": "https://github.com/sjh9714/demoreel#readme",
-  "bugs": { "url": "https://github.com/sjh9714/demoreel/issues" },
+  "bugs": {
+    "url": "https://github.com/sjh9714/demoreel/issues"
+  },
   "dependencies": {
     "puppeteer-core": "^24.23.0",
     "rrweb": "^2.1.1"
@@ -23,6 +43,6 @@
   "devDependencies": {
     "@types/node": "^24.10.9",
     "esbuild": "^0.27.3",
-    "typescript": "^5.9.4"
+    "typescript": "^5.9.3"
   }
 }
