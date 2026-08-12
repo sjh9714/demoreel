@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
-      - uses: browser-actions/setup-chrome@v1
+      - uses: browser-actions/setup-chrome@c785b87e244131f27c9f19c1a33e2ead956ab7ce # v1.7.3
         id: chrome
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - run: npm ci
