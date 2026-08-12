@@ -2,6 +2,8 @@
 
 Screen recording you can edit like code. Record a real session in your web app once, then retime it, move a camera over it, and render a crisp, deterministic GIF — from the same take, forever.
 
+**Live demo (not a video — the actual DOM replay with edit sliders): [demoreel-two.vercel.app](https://demoreel-two.vercel.app)**
+
 ![demoreel demo](docs/demo.gif)
 
 *This GIF was rendered by demoreel itself: one recorded session, auto-edited by `demoreel suggest`.*
