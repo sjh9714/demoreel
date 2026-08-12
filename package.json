@@ -1,6 +1,6 @@
 {
   "name": "filmless",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Record a web app session, edit it like code, render a crisp README GIF. vhs for web apps.",
   "type": "module",
   "bin": {
