@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>demoreel fixture</title><style>
+  body{margin:0;font:16px -apple-system,sans-serif;background:#f4f5f7;color:#1a1a1a}
+  header{background:#1f2937;color:#fff;padding:14px 24px;font-weight:600}
+  main{max-width:720px;margin:24px auto;padding:0 16px}
+  .card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+  button{background:#2563eb;color:#fff;border:0;border-radius:8px;padding:10px 18px;font-size:15px;cursor:pointer;transition:background .2s,transform .2s}
+  button:hover{background:#1d4ed8;transform:translateY(-1px)}
+  input{border:1px solid #d1d5db;border-radius:8px;padding:10px 12px;font-size:15px;width:60%}
+  ul{list-style:none;padding:0;margin:12px 0;max-height:180px;overflow-y:auto;border:1px solid #e5e7eb;border-radius:8px}
+  li{padding:10px 14px;border-bottom:1px solid #f3f4f6;transition:background .15s}
+  li:hover{background:#eef2ff}
+  #toast{position:fixed;bottom:24px;right:24px;background:#059669;color:#fff;padding:12px 18px;border-radius:8px;opacity:0;transition:opacity .3s}
+  #toast.show{opacity:1}
+</style></head><body>
+<header>Acme Dashboard</header>
+<main>
+  <div class="card">
+    <h3>Create item</h3>
+    <input id="name" placeholder="Item name">
+    <button id="add">Add item</button>
+  </div>
+  <div class="card">
+    <h3>Items</h3>
+    <ul id="list"></ul>
+  </div>
+</main>
+<div id="toast">Item added!</div>
+<script>
+  const list=document.getElementById('list');
+  for(let i=1;i<=20;i++){const li=document.createElement('li');li.textContent='Existing item '+i;list.appendChild(li);}
+  document.getElementById('add').onclick=()=>{
+    const v=document.getElementById('name').value||'Untitled';
+    const li=document.createElement('li');li.textContent=v;li.style.background='#fef9c3';
+    list.prepend(li);
+    const t=document.getElementById('toast');t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),1500);
+  };
+</script>
+</body></html>
